@@ -19,7 +19,8 @@ Pod::Spec.new do |s|
 
     s.subspec 'Core' do |cs|
         cs.dependency 'AFNetworking'
-        cs.dependency 'FastEasyMapping'
+        cs.dependency 'FastEasyMapping', '< 0.5.2'
+        cs.dependency 'MagicalRecord', '< 2.3'
     end
 
 end
