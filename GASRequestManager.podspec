@@ -16,4 +16,10 @@ Pod::Spec.new do |s|
     }
     s.source_files      = 'Source/*.{m,h}'
     s.requires_arc      = true
+
+    s.subspec 'Core' do |cs|
+        cs.dependency 'AFNetworking'
+        cs.dependency 'FastEasyMapping'
+    end
+
 end
