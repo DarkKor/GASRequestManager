@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.platform = :ios
     s.ios.deployment_target = "8.0"
 
-    s.source_files      = 'Source/*.{m,h}'
+    s.source_files      = 'Source/*.{m,h}', 'Source/FEMMappingHelpers/*.{h,m}'
     s.requires_arc      = true
 
     s.subspec 'Core' do |cs|
