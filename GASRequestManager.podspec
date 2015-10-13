@@ -21,9 +21,9 @@ Pod::Spec.new do |s|
     s.requires_arc      = true
 
     s.subspec 'Core' do |cs|
-        cs.dependency 'AFNetworking'
-        cs.dependency 'FastEasyMapping'
-        cs.dependency 'MagicalRecord'
+        cs.dependency 'AFNetworking', '<= 2.6.0'
+        cs.dependency 'FastEasyMapping', '<= 1.0'
+        cs.dependency 'MagicalRecord', '<= 2.3.0'
     end
 
 end
