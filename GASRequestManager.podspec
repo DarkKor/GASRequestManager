@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     }
     s.source            = {
         :git => 'https://github.com/DarkKor/GASRequestManager.git',
-        :tag => 'master'
+        :tag => '1.0.0'
     }
     s.platform = :ios
     s.ios.deployment_target = "8.0"
