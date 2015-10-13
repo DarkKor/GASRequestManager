@@ -16,8 +16,8 @@
                            toMany:(BOOL)toMany {
     Relationship *relationship = [[Relationship alloc] initWithProperty:forProperty
                                                                 keyPath:keyPath
-                                                       assignmentPolicy:FEMAssignmentPolicyAssign
-                                                          objectMapping:mapping];
+                                                                mapping:mapping
+                                                       assignmentPolicy:FEMAssignmentPolicyAssign];
     [relationship setToMany:toMany];
     
     return relationship;
