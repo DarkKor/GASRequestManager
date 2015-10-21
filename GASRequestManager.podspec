@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'GASRequestManager'
-    s.version           = '1.0.1'
+    s.version           = '1.0.0'
     s.summary           = 'Engine for network and requests, based on AFNetworking (for requests) and FastEasyMapping (for mapping).'
     s.homepage          = 'https://github.com/DarkKor/GASRequestManager'
     s.license           = {
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     }
     s.source            = {
         :git => 'https://github.com/DarkKor/GASRequestManager.git',
-        :tag => '1.0.1'
+        :tag => '1.0.0'
     }
     s.platform = :ios
     s.ios.deployment_target = "8.0"
