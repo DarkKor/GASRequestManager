@@ -11,8 +11,6 @@
 		DC26D6B01BCD0E1400D046E0 /* GASRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6AC1BCD0E1400D046E0 /* GASRequestManager.m */; };
 		DC26D6B31BCD0E4D00D046E0 /* mogen.sh in Resources */ = {isa = PBXBuildFile; fileRef = DC26D6B11BCD0E4D00D046E0 /* mogen.sh */; };
 		DC26D6B41BCD0E4D00D046E0 /* mogend.sh in Resources */ = {isa = PBXBuildFile; fileRef = DC26D6B21BCD0E4D00D046E0 /* mogend.sh */; };
-		DC26D6BD1BCD100300D046E0 /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6BA1BCD100300D046E0 /* Mapping.m */; };
-		DC26D6BE1BCD100300D046E0 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6BC1BCD100300D046E0 /* Relationship.m */; };
 		DC26D6C91BCD108D00D046E0 /* Comics.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6C11BCD108D00D046E0 /* Comics.m */; };
 		DC26D6CA1BCD108D00D046E0 /* Editor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6C31BCD108D00D046E0 /* Editor.m */; };
 		DC26D6CB1BCD108D00D046E0 /* _Comics.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6C61BCD108D00D046E0 /* _Comics.m */; };
@@ -26,6 +24,8 @@
 		DC4F84961BCCEFBF0016FAF5 /* GASRequestManagerTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4F84951BCCEFBF0016FAF5 /* GASRequestManagerTestTests.m */; };
 		DC83C08E1BCCF67500E774C6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DC83C08D1BCCF67500E774C6 /* Podfile */; };
 		DC83C0911BCD005F00E774C6 /* marvel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC83C08F1BCD005F00E774C6 /* marvel.xcdatamodeld */; };
+		DCA086CC1BD790D000C40A3C /* GASMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA086C81BD790D000C40A3C /* GASMapping.m */; settings = {ASSET_TAGS = (); }; };
+		DCA086CD1BD790D000C40A3C /* GASRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA086C91BD790D000C40A3C /* GASRelationship.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -69,10 +69,6 @@
 		DC26D6AC1BCD0E1400D046E0 /* GASRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GASRequestManager.m; sourceTree = "<group>"; };
 		DC26D6B11BCD0E4D00D046E0 /* mogen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogen.sh; sourceTree = "<group>"; };
 		DC26D6B21BCD0E4D00D046E0 /* mogend.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogend.sh; sourceTree = "<group>"; };
-		DC26D6B91BCD100300D046E0 /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
-		DC26D6BA1BCD100300D046E0 /* Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapping.m; sourceTree = "<group>"; };
-		DC26D6BB1BCD100300D046E0 /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
-		DC26D6BC1BCD100300D046E0 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
 		DC26D6BF1BCD101D00D046E0 /* v1.0 marvel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "v1.0 marvel.xcdatamodel"; sourceTree = "<group>"; };
 		DC26D6C01BCD108D00D046E0 /* Comics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comics.h; sourceTree = "<group>"; };
 		DC26D6C11BCD108D00D046E0 /* Comics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comics.m; sourceTree = "<group>"; };
@@ -97,6 +93,10 @@
 		DC4F84951BCCEFBF0016FAF5 /* GASRequestManagerTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASRequestManagerTestTests.m; sourceTree = "<group>"; };
 		DC83C08D1BCCF67500E774C6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DC83C0901BCD005F00E774C6 /* marvel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = marvel.xcdatamodel; sourceTree = "<group>"; };
+		DCA086C81BD790D000C40A3C /* GASMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GASMapping.m; sourceTree = "<group>"; };
+		DCA086C91BD790D000C40A3C /* GASRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GASRelationship.m; sourceTree = "<group>"; };
+		DCA086CA1BD790D000C40A3C /* GASRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GASRelationship.h; sourceTree = "<group>"; };
+		DCA086CB1BD790D000C40A3C /* GASMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GASMapping.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,10 +152,10 @@
 		DC26D6B81BCD100300D046E0 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				DC26D6B91BCD100300D046E0 /* Mapping.h */,
-				DC26D6BA1BCD100300D046E0 /* Mapping.m */,
-				DC26D6BB1BCD100300D046E0 /* Relationship.h */,
-				DC26D6BC1BCD100300D046E0 /* Relationship.m */,
+				DCA086C81BD790D000C40A3C /* GASMapping.m */,
+				DCA086C91BD790D000C40A3C /* GASRelationship.m */,
+				DCA086CA1BD790D000C40A3C /* GASRelationship.h */,
+				DCA086CB1BD790D000C40A3C /* GASMapping.h */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -386,6 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA086CC1BD790D000C40A3C /* GASMapping.m in Sources */,
+				DCA086CD1BD790D000C40A3C /* GASRelationship.m in Sources */,
 				DC4F84821BCCEFBF0016FAF5 /* ViewController.m in Sources */,
 				DC26D6CB1BCD108D00D046E0 /* _Comics.m in Sources */,
 				DC26D6C91BCD108D00D046E0 /* Comics.m in Sources */,
@@ -394,8 +396,6 @@
 				DC4F847F1BCCEFBF0016FAF5 /* AppDelegate.m in Sources */,
 				DC26D6CC1BCD108D00D046E0 /* _Editor.m in Sources */,
 				DC26D6B01BCD0E1400D046E0 /* GASRequestManager.m in Sources */,
-				DC26D6BE1BCD100300D046E0 /* Relationship.m in Sources */,
-				DC26D6BD1BCD100300D046E0 /* Mapping.m in Sources */,
 				DC4F847C1BCCEFBF0016FAF5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

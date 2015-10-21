@@ -1,15 +1,15 @@
 //
-//  Mapping.h
+//  GASMapping.h
 //  testFem
 //
 //  Created by Виктор Заикин on 24.03.15.
-//  Copyright (c) 2015 Виктор Заикин. All rights reserved.
+//  Copyright (c) 2015 GrowApp Solutions. All rights reserved.
 //
 
 #import "FEMManagedObjectMapping.h"
 #import <FEMManagedObjectMapping.h>
 
-@interface Mapping : FEMManagedObjectMapping
+@interface GASMapping : FEMManagedObjectMapping
 
 + (instancetype)createWithMapping:(FEMMapping *)_mapping
                         enityName:(NSString *)entityName;

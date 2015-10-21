@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
-#import "Mapping.h"
-#import "Relationship.h"
+#import "GASMapping.h"
+#import "GASRelationship.h"
 
 #define LOGGING YES
 
@@ -45,7 +45,7 @@ typedef id(^ResponseModifierBlock)(id responseToModify);
 - (void)stopAllRequests;
 
 //  Mappings
-- (void)addMapping: (Mapping *)mapping
+- (void)addMapping: (GASMapping *)mapping
           forRoute: (NSString *)route
            keypath: (NSString *)keypath;
 - (NSDictionary *)map: (id)results

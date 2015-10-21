@@ -63,14 +63,14 @@
     //
     
     //  Main mapping
-    Mapping *mappingComics = [Mapping createWithDict:@{@"uid" : @"id",
-                                                       @"isbn" : @"isbn",
-                                                       @"title" : @"title",
-                                                       @"caption" : @"description",
-                                                       @"format" : @"format",
-                                                       @"pageCount" : @"pageCount"}
-                                          primaryKey:@"uid"
-                                          entityName:@"Comics"];
+    GASMapping *mappingComics = [GASMapping createWithDict:@{@"uid" : @"id",
+                                                             @"isbn" : @"isbn",
+                                                             @"title" : @"title",
+                                                             @"caption" : @"description",
+                                                             @"format" : @"format",
+                                                             @"pageCount" : @"pageCount"}
+                                                primaryKey:@"uid"
+                                                entityName:@"Comics"];
     
     //  Tranformer attribute
     [mappingComics addAttribute:[FEMAttribute mappingOfProperty:@"thumbUrl"
@@ -82,10 +82,10 @@
                                                             }]];
     
     //  To many relationship
-    Mapping *mappingEditor = [Mapping createWithDict:@{@"name" : @"name",
-                                                       @"role" : @"role"}
-                                          primaryKey:@"name"
-                                          entityName:@"Editor"];
+    GASMapping *mappingEditor = [GASMapping createWithDict:@{@"name" : @"name",
+                                                             @"role" : @"role"}
+                                                primaryKey:@"name"
+                                                entityName:@"Editor"];
     [mappingComics addToManyRelationshipMapping:mappingEditor
                                     forProperty:@"editors"
                                         keyPath:@"creators.items"];

@@ -1,19 +1,19 @@
 //
-//  Mapping.m
+//  GASMapping.m
 //  testFem
 //
 //  Created by Виктор Заикин on 24.03.15.
-//  Copyright (c) 2015 Виктор Заикин. All rights reserved.
+//  Copyright (c) 2015 GrowApp Solutions. All rights reserved.
 //
 
-#import "Mapping.h"
-#import "Relationship.h"
+#import "GASMapping.h"
+#import "GASRelationship.h"
 
-@implementation Mapping
+@implementation GASMapping
 
 + (instancetype)createWithMapping:(FEMMapping *)_mapping
                         enityName:(NSString *)entityName {
-    Mapping *mapping = [[Mapping alloc] initWithEntityName:entityName];
+    GASMapping *mapping = [[GASMapping alloc] initWithEntityName:entityName];
     
     for (FEMAttribute *attribute in _mapping.attributes) {
         [mapping addAttribute:attribute];
@@ -27,7 +27,7 @@
 
 + (instancetype)createWithDict:(NSDictionary *)mappings
                     entityName:(NSString *)entityName {
-    Mapping *mapping = [[Mapping alloc] initWithEntityName:entityName];
+    GASMapping *mapping = [[GASMapping alloc] initWithEntityName:entityName];
     
     NSAssert(mappings != nil, @"You should define mapping for entityName");
     
@@ -40,7 +40,7 @@
 + (instancetype)createWithDict:(NSDictionary *)mappings
                     primaryKey:(NSString *)primaryKey
                     entityName:(NSString *)entityName {
-    Mapping *mapping = [Mapping createWithDict:mappings
+    GASMapping *mapping = [GASMapping createWithDict:mappings
                                     entityName:entityName];
     if (primaryKey.length > 0)
         [mapping setPrimaryKey:primaryKey];
@@ -51,10 +51,10 @@
 + (instancetype)createWithDict:(NSDictionary *)mappings
                  relationships:(NSArray *)relationships
                     entityName:(NSString *)entityName {
-    Mapping *map = [Mapping createWithDict:mappings
+    GASMapping *map = [GASMapping createWithDict:mappings
                                 entityName:entityName];
     
-    for (Relationship *rel in relationships) {
+    for (GASRelationship *rel in relationships) {
         [map addRelationship:rel];
     }
     
@@ -65,11 +65,11 @@
                     primaryKey:(NSString *)primaryKey
                  relationships:(NSArray *)relationships
                     entityName:(NSString *)entityName {
-    Mapping *map = [Mapping createWithDict:mappings
+    GASMapping *map = [GASMapping createWithDict:mappings
                                 primaryKey:primaryKey
                                 entityName:entityName];
     
-    for (Relationship *rel in relationships) {
+    for (GASRelationship *rel in relationships) {
         [map addRelationship:rel];
     }
     
@@ -77,7 +77,7 @@
 }
 
 - (void)addRelationships:(NSArray *)relationships {
-    for (Relationship *rel in relationships) {
+    for (GASRelationship *rel in relationships) {
         [self addRelationship:rel];
     }
 }
