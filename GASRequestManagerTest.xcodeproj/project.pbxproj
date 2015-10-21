@@ -152,10 +152,10 @@
 		DC26D6B81BCD100300D046E0 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				DCA086C81BD790D000C40A3C /* GASMapping.m */,
-				DCA086C91BD790D000C40A3C /* GASRelationship.m */,
-				DCA086CA1BD790D000C40A3C /* GASRelationship.h */,
 				DCA086CB1BD790D000C40A3C /* GASMapping.h */,
+				DCA086C81BD790D000C40A3C /* GASMapping.m */,
+				DCA086CA1BD790D000C40A3C /* GASRelationship.h */,
+				DCA086C91BD790D000C40A3C /* GASRelationship.m */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -258,6 +258,7 @@
 				DC4F84731BCCEFBF0016FAF5 /* Frameworks */,
 				DC4F84741BCCEFBF0016FAF5 /* Resources */,
 				B196791774A5126E151A9C4D /* Copy Pods Resources */,
+				BAA0DB65D97DC6C83C5D3100 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 				DC26D6B71BCD0FB400D046E0 /* PBXBuildRule */,
@@ -377,6 +378,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAA0DB65D97DC6C83C5D3100 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

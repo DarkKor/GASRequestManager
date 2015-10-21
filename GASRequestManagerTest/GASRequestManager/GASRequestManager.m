@@ -9,7 +9,7 @@
 #import "GASRequestManager.h"
 #import <AFNetworking/AFNetworking.h>
 #import <FastEasyMapping.h>
-#import <MagicalRecord.h>
+#import <MagicalRecord/MagicalRecord.h>
 
 #define GET_METHOD @"GET"
 #define POST_METHOD @"POST"

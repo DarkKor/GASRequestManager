@@ -28,20 +28,24 @@ typedef id(^ResponseModifierBlock)(id responseToModify);
 //  Use this to setup response content types
 @property (nonatomic, strong) NSSet *responseContentTypeSet;
 
+@property (nonatomic, strong) NSManagedObjectContext *savingContext;
+
+@property (nonatomic, assign) BOOL verboseLogging;
+
 //  Init
-+ (instancetype)managerWithBaseURL:(NSString *)baseURL;
-- (instancetype)initWithBaseURL:(NSString *)baseURL;
++ (instancetype)managerWithBaseURL:(NSString *)baseURL context: (NSManagedObjectContext *)context;
+- (instancetype)initWithBaseURL:(NSString *)baseURL context: (NSManagedObjectContext *)context;
 - (NSURL *)baseUrl;
 
 //  Requests
-- (void)request:(NSString *)route
-         method:(NSString *)method
-         object:(NSObject *)object
-     completion:(MappedCompletionBlock)completion;
-- (void)request:(NSString *)route
-         method:(NSString *)method
-     parameters:(NSDictionary *)params
-     completion:(MappedCompletionBlock)completion;
+- (AFHTTPRequestOperation *)request:(NSString *)route
+                             method:(NSString *)method
+                             object:(NSObject *)object
+                         completion:(MappedCompletionBlock)completion;
+- (AFHTTPRequestOperation *)request:(NSString *)route
+                             method:(NSString *)method
+                         parameters:(NSDictionary *)params
+                         completion:(MappedCompletionBlock)completion;
 - (void)stopAllRequests;
 
 //  Mappings

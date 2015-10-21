@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "GASRequestManager.h"
 
-#import <MagicalRecord.h>
+#import <MagicalRecord/MagicalRecord.h>
 #import "Comics.h"
 #import "Editor.h"
 
@@ -56,7 +56,8 @@
     //
     //  Create request manager
     //
-    self.manager = [GASRequestManager managerWithBaseURL:BASE_URL];
+    self.manager = [GASRequestManager managerWithBaseURL:BASE_URL
+                                                 context:[NSManagedObjectContext MR_rootSavingContext]];
     
     //
     //  Setup mappings
