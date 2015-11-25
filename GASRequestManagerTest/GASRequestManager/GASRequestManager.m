@@ -251,6 +251,7 @@
     void(^failureBlock)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
         if(self.verboseLogging) {
             NSLog(@"errorCode %ld error %@",  (long)error.code, error.description);
+            [self handleServerError:error];
         }
         
         finalCompletionBlock(nil, error);
@@ -343,6 +344,32 @@
     }
     
     return parameters;
+}
+
+// Handle server exception
+
+- (void)handleServerError:(NSError *)error {
+    NSString *serverError = [self parseServerError:error];
+    
+    if (serverError.length > 0)
+        NSLog(@"Parsed server exception: %@", serverError);
+}
+
+- (NSString *)parseServerError:(NSError *)error {
+    NSString *errorString = @"";
+    
+    NSDictionary *errUserInfo = error.userInfo;
+    if (errUserInfo != nil) {
+        NSError *undelyningServerError = error.userInfo[@"NSUnderlyingError"];
+        NSDictionary *underlyningServerErrorUserInfo = undelyningServerError.userInfo;
+        if (underlyningServerErrorUserInfo != nil) {
+            NSData *errorData = nil;
+            errorData = underlyningServerErrorUserInfo[@"com.alamofire.serialization.response.error.data"];
+            errorString = [[NSString alloc] initWithData:errorData encoding:4];
+        }
+    }
+    
+    return errorString;
 }
 
 @end
