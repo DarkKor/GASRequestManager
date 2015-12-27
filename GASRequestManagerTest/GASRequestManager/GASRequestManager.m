@@ -1,4 +1,4 @@
-         //
+//
 //  RequestManager.m
 //  testFem
 //
@@ -22,7 +22,7 @@
 
 @property (nonatomic, copy) NSString *baseUrlString;
 
-@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) AFHTTPRequestSerializer *requestSerializer;
 @property (nonatomic, strong) AFHTTPResponseSerializer *responseSerializer;
 
@@ -54,7 +54,7 @@
         NSAssert(context != nil, @"Saving context cannot be nil");
         
         self.baseUrlString = baseURL;
-        self.manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[self baseUrl]];
+        self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[self baseUrl]];
         
         self.verboseLogging = YES;
     }
@@ -132,23 +132,23 @@
 
 // Method sending an object to server
 
-- (AFHTTPRequestOperation *)request:(NSString *)route
+- (NSURLSessionDataTask *)request:(NSString *)route
                            method:(NSString *)method
                            object:(NSObject *)object
                        completion:(MappedCompletionBlock)completion {
     NSDictionary *params = [self dictionaryFromObject:object
                                                 route:route];
-    AFHTTPRequestOperation *op = [self request:route
-                                        method:method
-                                    parameters:params
-                                    completion:completion];
+    NSURLSessionDataTask *op = [self request:route
+                                      method:method
+                                  parameters:params
+                                  completion:completion];
     return op;
 }
 
-- (AFHTTPRequestOperation *)request:(NSString *)route
-                             method:(NSString *)method
-                         parameters:(NSDictionary *)params
-                         completion:(MappedCompletionBlock)completion {
+- (NSURLSessionDataTask *)request:(NSString *)route
+                           method:(NSString *)method
+                       parameters:(NSDictionary *)params
+                       completion:(MappedCompletionBlock)completion {
     NSMutableDictionary *paramsDict = [params mutableCopy];
     NSString *requestRoute = [route copy];
     
@@ -179,39 +179,39 @@
         paramsDict = nil;
     }
     
-    AFHTTPRequestOperation *op = nil;
-    op = [self sendRequest:requestRoute
-                    method:method
-                parameters:paramsDict
-                completion:^(id result, NSError *error) {
-                    if (error == nil) {
-                        if (result != nil) {
-                            NSDictionary *mappedObjects = [self map:result route:route];
-                            
-                            if (completion != nil) {
-                                NSManagedObjectContext *ctx = self.savingContext;
-                                [ctx MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                        completion(mappedObjects, result, error);
-                                    });
-                                }];
-                            }
-                        }
-                    } else {
-                        if (completion != nil) {
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                completion(nil, result, error);
-                            });
-                        }
-                    }
-                }];
-    return op;
+    NSURLSessionDataTask *dataTask = nil;
+    dataTask = [self sendRequest:requestRoute
+                          method:method
+                      parameters:paramsDict
+                      completion:^(id result, NSError *error) {
+                          if (error == nil) {
+                              if (result != nil) {
+                                  NSDictionary *mappedObjects = [self map:result route:route];
+                                  
+                                  if (completion != nil) {
+                                      NSManagedObjectContext *ctx = self.savingContext;
+                                      [ctx MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              completion(mappedObjects, result, error);
+                                          });
+                                      }];
+                                  }
+                              }
+                          } else {
+                              if (completion != nil) {
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      completion(nil, result, error);
+                                  });
+                              }
+                          }
+                      }];
+    return dataTask;
 }
 
-- (AFHTTPRequestOperation *)sendRequest:(NSString *)route
-                                 method:(NSString *)method
-                             parameters:(NSDictionary *)params
-                             completion:(CompletionBlock)completion {
+- (NSURLSessionDataTask *)sendRequest:(NSString *)route
+                               method:(NSString *)method
+                           parameters:(NSDictionary *)params
+                           completion:(CompletionBlock)completion {
     
     if (self.responseContentTypeSet != nil) {
         [self.manager.responseSerializer setAcceptableContentTypes:self.responseContentTypeSet];
@@ -238,17 +238,17 @@
         }
     };
     
-    void(^successBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
+    void(^successBlock)(NSURLSessionTask *task, id responseObject) = ^(NSURLSessionTask *task, id responseObject) {
         if(self.verboseLogging) {
             NSLog(@"%@\n%@",
-                  operation.request.URL.absoluteString,
+                  task.originalRequest.URL.absoluteString,
                   [responseObject description]);
         }
         
         finalCompletionBlock(responseObject, nil);
     };
     
-    void(^failureBlock)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
+    void(^failureBlock)(NSURLSessionTask *task, NSError *error) = ^(NSURLSessionTask *task, NSError *error) {
         if(self.verboseLogging) {
             NSLog(@"errorCode %ld error %@",  (long)error.code, error.description);
             [self handleServerError:error];
@@ -257,22 +257,22 @@
         finalCompletionBlock(nil, error);
     };
     
-    AFHTTPRequestOperation *op = nil;
+    NSURLSessionDataTask *dataTask = nil;
     
     if ([method isEqualToString:GET_METHOD]) {
-        op = [self.manager GET:route parameters:params success:successBlock failure:failureBlock];
+        dataTask = [self.manager GET:route parameters:params progress:nil success:successBlock failure:failureBlock];
     }
     else if ([method isEqualToString:POST_METHOD]) {
-        op = [self.manager POST:route parameters:params success:successBlock failure:failureBlock];
+        dataTask = [self.manager POST:route parameters:params progress:nil success:successBlock failure:failureBlock];
     }
     else if ([method isEqualToString:PUT_METHOD]) {
-        op = [self.manager PUT:route parameters:params success:successBlock failure:failureBlock];
+        dataTask = [self.manager PUT:route parameters:params success:successBlock failure:failureBlock];
     }
     else if ([method isEqualToString:PATCH_METHOD]) {
-        op = [self.manager PATCH:route parameters:params success:successBlock failure:failureBlock];
+        dataTask = [self.manager PATCH:route parameters:params success:successBlock failure:failureBlock];
     }
     else if ([method isEqualToString:DELETE_METHOD]) {
-        op = [self.manager DELETE:route parameters:params success:successBlock failure:failureBlock];
+        dataTask = [self.manager DELETE:route parameters:params success:successBlock failure:failureBlock];
     }
     else {
         NSLog(@"Unsupported HTTP Method: %@", method);
@@ -280,17 +280,17 @@
     
     if(self.verboseLogging) {
         if(![method isEqualToString:POST_METHOD]) {
-            NSLog(@"%@", op.request.URL.absoluteString);
+            NSLog(@"%@", dataTask.originalRequest.URL.absoluteString);
         }
         else {
             NSLog(@"request %@\nbody %@",
-                  op.request.URL.absoluteString,
-                  [[NSString alloc] initWithData:op.request.HTTPBody
+                  dataTask.originalRequest.URL.absoluteString,
+                  [[NSString alloc] initWithData:dataTask.originalRequest.HTTPBody
                                         encoding:NSUTF8StringEncoding]);
         }
     }
     
-    return op;
+    return dataTask;
 }
 
 - (NSURL *)baseUrl {
@@ -299,16 +299,16 @@
 
 - (NSArray *)mapObjects:(NSArray *)objects mapping: (GASMapping *)mapping {
     NSManagedObjectContext *ctx = self.savingContext;
-    return [FEMManagedObjectDeserializer collectionFromRepresentation:objects
-                                                              mapping:mapping
-                                                              context:ctx];
+    return [FEMDeserializer collectionFromRepresentation:objects
+                                                 mapping:mapping
+                                                 context:ctx];
 }
 
 - (id)mapObject: (NSDictionary *)object mapping: (GASMapping *)mapping {
     NSManagedObjectContext *ctx = self.savingContext;
-    return [FEMManagedObjectDeserializer objectFromRepresentation:object
-                                                          mapping:mapping
-                                                          context:ctx];
+    return [FEMDeserializer objectFromRepresentation:object
+                                             mapping:mapping
+                                             context:ctx];
 }
 
 - (id)beforeMappingChanges:(id)result forRoute:(NSString *)route {

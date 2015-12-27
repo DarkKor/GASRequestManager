@@ -38,14 +38,14 @@ typedef id(^ResponseModifierBlock)(id responseToModify);
 - (NSURL *)baseUrl;
 
 //  Requests
-- (AFHTTPRequestOperation *)request:(NSString *)route
-                             method:(NSString *)method
-                             object:(NSObject *)object
-                         completion:(MappedCompletionBlock)completion;
-- (AFHTTPRequestOperation *)request:(NSString *)route
-                             method:(NSString *)method
-                         parameters:(NSDictionary *)params
-                         completion:(MappedCompletionBlock)completion;
+- (NSURLSessionDataTask *)request:(NSString *)route
+                           method:(NSString *)method
+                           object:(NSObject *)object
+                       completion:(MappedCompletionBlock)completion;
+- (NSURLSessionDataTask *)request:(NSString *)route
+                           method:(NSString *)method
+                       parameters:(NSDictionary *)params
+                       completion:(MappedCompletionBlock)completion;
 - (void)stopAllRequests;
 
 //  Mappings
