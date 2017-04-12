@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A11C1BE36054E3167B1FE908 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 411241F1D3299DFE779B4E51 /* libPods.a */; };
+		069D992D82D895FAB3F2E55D /* libPods-GASRequestManagerTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC23ECF2EBDDFCD4B83B501 /* libPods-GASRequestManagerTest.a */; };
 		DC26D6B01BCD0E1400D046E0 /* GASRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26D6AC1BCD0E1400D046E0 /* GASRequestManager.m */; };
 		DC26D6B31BCD0E4D00D046E0 /* mogen.sh in Resources */ = {isa = PBXBuildFile; fileRef = DC26D6B11BCD0E4D00D046E0 /* mogen.sh */; };
 		DC26D6B41BCD0E4D00D046E0 /* mogend.sh in Resources */ = {isa = PBXBuildFile; fileRef = DC26D6B21BCD0E4D00D046E0 /* mogend.sh */; };
@@ -62,9 +62,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		411241F1D3299DFE779B4E51 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D34E092B4AE295F6A539C10 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D45A50FA3E3F3F9AC3D1FC6D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0810A64B26B4EABF51321144 /* Pods-GASRequestManagerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GASRequestManagerTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GASRequestManagerTest/Pods-GASRequestManagerTest.release.xcconfig"; sourceTree = "<group>"; };
+		2AC23ECF2EBDDFCD4B83B501 /* libPods-GASRequestManagerTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GASRequestManagerTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47C54D02014D1F1030BA02C4 /* Pods-GASRequestManagerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GASRequestManagerTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GASRequestManagerTest/Pods-GASRequestManagerTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DC26D6AB1BCD0E1400D046E0 /* GASRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GASRequestManager.h; sourceTree = "<group>"; };
 		DC26D6AC1BCD0E1400D046E0 /* GASRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GASRequestManager.m; sourceTree = "<group>"; };
 		DC26D6B11BCD0E4D00D046E0 /* mogen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogen.sh; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11C1BE36054E3167B1FE908 /* libPods.a in Frameworks */,
+				069D992D82D895FAB3F2E55D /* libPods-GASRequestManagerTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,13 +118,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AFA44DE1C5B7928223F17D3 /* Pods */ = {
+		01AE93151311B3793C22CD15 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D45A50FA3E3F3F9AC3D1FC6D /* Pods.debug.xcconfig */,
-				5D34E092B4AE295F6A539C10 /* Pods.release.xcconfig */,
+				47C54D02014D1F1030BA02C4 /* Pods-GASRequestManagerTest.debug.xcconfig */,
+				0810A64B26B4EABF51321144 /* Pods-GASRequestManagerTest.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		676E5611B0DDC7EF8F9E34EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AC23ECF2EBDDFCD4B83B501 /* libPods-GASRequestManagerTest.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DC26D6A21BCD0E1400D046E0 /* Models */ = {
@@ -177,8 +185,8 @@
 				DC4F84781BCCEFBF0016FAF5 /* GASRequestManagerTest */,
 				DC4F84921BCCEFBF0016FAF5 /* GASRequestManagerTestTests */,
 				DC4F84771BCCEFBF0016FAF5 /* Products */,
-				2AFA44DE1C5B7928223F17D3 /* Pods */,
-				DF1F5A7C5FB69E1A4BD77FEC /* Frameworks */,
+				01AE93151311B3793C22CD15 /* Pods */,
+				676E5611B0DDC7EF8F9E34EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,14 +246,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DF1F5A7C5FB69E1A4BD77FEC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				411241F1D3299DFE779B4E51 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,11 +253,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC4F84991BCCEFBF0016FAF5 /* Build configuration list for PBXNativeTarget "GASRequestManagerTest" */;
 			buildPhases = (
-				1A84A3CC6F61C0B93280AD3B /* Check Pods Manifest.lock */,
+				4D611E7FE9FC74D56BAA52C4 /* [CP] Check Pods Manifest.lock */,
 				DC4F84721BCCEFBF0016FAF5 /* Sources */,
 				DC4F84731BCCEFBF0016FAF5 /* Frameworks */,
 				DC4F84741BCCEFBF0016FAF5 /* Resources */,
-				B196791774A5126E151A9C4D /* Copy Pods Resources */,
+				3150ABDC617B6E2001A0DF0C /* [CP] Embed Pods Frameworks */,
+				5858544CEED9104ED901DAE9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 				DC26D6B71BCD0FB400D046E0 /* PBXBuildRule */,
@@ -349,34 +350,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A84A3CC6F61C0B93280AD3B /* Check Pods Manifest.lock */ = {
+		3150ABDC617B6E2001A0DF0C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GASRequestManagerTest/Pods-GASRequestManagerTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B196791774A5126E151A9C4D /* Copy Pods Resources */ = {
+		4D611E7FE9FC74D56BAA52C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5858544CEED9104ED901DAE9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GASRequestManagerTest/Pods-GASRequestManagerTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -520,7 +536,7 @@
 		};
 		DC4F849A1BCCEFBF0016FAF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D45A50FA3E3F3F9AC3D1FC6D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 47C54D02014D1F1030BA02C4 /* Pods-GASRequestManagerTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GASRequestManagerTest/Info.plist;
@@ -531,7 +547,7 @@
 		};
 		DC4F849B1BCCEFBF0016FAF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D34E092B4AE295F6A539C10 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0810A64B26B4EABF51321144 /* Pods-GASRequestManagerTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GASRequestManagerTest/Info.plist;
