@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'GASRequestManager'
-    s.version           = '1.0.2'
+    s.version           = '1.1.0'
     s.summary           = 'Engine for network and requests, based on AFNetworking (for requests) and FastEasyMapping (for mapping).'
     s.homepage          = 'https://github.com/DarkKor/GASRequestManager'
     s.license           = {
@@ -21,9 +21,9 @@ Pod::Spec.new do |s|
     s.requires_arc      = true
 
     s.subspec 'Core' do |cs|
-        cs.dependency 'AFNetworking', '<= 2.6.0'
-        cs.dependency 'FastEasyMapping', '<= 1.0'
-        cs.dependency 'MagicalRecord', '<= 2.3.0'
+        cs.dependency 'AFNetworking', '<= 3.1.0'
+        cs.dependency 'FastEasyMapping', '<= 1.1.2'
+        cs.dependency 'MagicalRecord', '<= 2.3.3'
     end
 
 end
